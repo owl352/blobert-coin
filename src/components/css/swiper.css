@@ -1,0 +1,9 @@
+.swiper-wrapper {
+  width: 65vw;
+  flex-direction: row;
+  left: .5vw;
+  justify-content: flex-start !important;
+}
+.swiper {
+  left: -0.7vw;
+}
