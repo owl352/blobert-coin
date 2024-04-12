@@ -50,3 +50,14 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     </TV>
   </React.StrictMode>
 );
+
+
+
+export const getImageUrl = (path: string) => {
+  return new URL(`../images/${path}`, import.meta.url).href;
+ };
+ 
+
+ export const getPublicUrl = (path: string) => {
+  return new URL(`../public/${path}`, import.meta.url).href;
+ };
