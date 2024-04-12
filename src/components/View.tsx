@@ -3,13 +3,14 @@ import { Sign } from "./Sign";
 import TokenSlider from "./Slider";
 import { IView } from "../utils/interfaces";
 import { starkscanContractURI } from "../utils/constants";
+import { getImageUrl } from "../main";
 
 export function View({
   myTokenBalance,
   myTokensData,
   myTokens,
   address,
-  onClose
+  onClose,
 }: IView) {
   return (
     <div>
@@ -26,7 +27,9 @@ export function View({
             display: "flex",
           }}
         >
-          <div onClick={onClose} style={{ cursor: "pointer" }}>{"<"}</div>
+          <div onClick={onClose} style={{ cursor: "pointer" }}>
+            {"<"}
+          </div>
           <div
             style={{
               display: "flex",
@@ -61,14 +64,14 @@ export function View({
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          position:"relative",
-          zIndex:"3"
+          position: "relative",
+          zIndex: "3",
         }}
       >
         <div
           className=" flex flex-col items-center justify-center "
           style={{
-            background: `url(images/library.png)`,
+            background: `url(${getImageUrl("library.png")})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -76,7 +79,7 @@ export function View({
             width: "64vw",
             height: "38vw",
             top: "11vw",
-            marginLeft:"2vw"
+            marginLeft: "2vw",
           }}
         >
           {myTokens.length != 0 && Object.keys(myTokensData).length != 0 ? (

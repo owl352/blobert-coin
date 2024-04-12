@@ -1,4 +1,5 @@
 import React from "react";
+import { getImageUrl } from "../main";
 
 export function Sign({ balance }: { balance: number }) {
   return (
@@ -11,15 +12,15 @@ export function Sign({ balance }: { balance: number }) {
         position: "absolute",
       }}
     >
-      <img src="images/sign-exchange.png" />
+      <img src={getImageUrl("sign-exchange.png")} />
       <div
         style={{
           position: "absolute",
           color: "white",
           fontSize: "1.5vw",
           zIndex: 2,
-          left: balance.toString().length>1?"25vw":"25.75vw",
-          top:"8vw"
+          left: balance.toString().length > 1 ? "25vw" : "25.75vw",
+          top: "8vw",
         }}
       >
         {`Bloberts: ${balance}`}

@@ -7,6 +7,7 @@ import { TokenType } from "./utils/types";
 import { ABI } from "./utils/abi";
 import { View } from "./components/View";
 import { contractAddress } from "./utils/constants";
+import { getImageUrl } from "./main";
 
 function App({ withHeader }: { withHeader: boolean }) {
   const { address } = useAccount();
@@ -64,7 +65,7 @@ function App({ withHeader }: { withHeader: boolean }) {
       }).call([])}
       <div>
         <img
-          src="images/frame.png"
+          src={getImageUrl('frame.png')}
           style={{
             width: "90vw",
             position: "absolute",
