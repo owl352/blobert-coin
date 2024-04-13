@@ -4,6 +4,7 @@ import TokenSlider from "./Slider";
 import { IView } from "../utils/interfaces";
 import { starkscanContractURI } from "../utils/constants";
 import { getImageUrl } from "../main";
+import { Balance } from "./balance";
 
 export function View({
   myTokenBalance,
@@ -15,6 +16,7 @@ export function View({
   return (
     <div>
       <Sign balance={myTokenBalance}></Sign>
+      {address !==undefined ? <Balance address={address!} />:<></>}
       {address !== undefined ? (
         <div
           style={{

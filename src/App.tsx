@@ -32,7 +32,7 @@ function App({ withHeader }: { withHeader: boolean }) {
     args: [myTokens.map((v) => v.tokenId)],
   });
   useEffect(() => {
-    console.log(data.data);
+    console.log(data);
     if (data.isError) {
       data.refetch();
       return;
@@ -47,7 +47,7 @@ function App({ withHeader }: { withHeader: boolean }) {
       });
       setTokensData(out);
     }
-  }, [data.status]);
+  }, [data.data]);
   return (
     <main
       style={{
