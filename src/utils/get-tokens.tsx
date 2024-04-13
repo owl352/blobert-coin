@@ -16,7 +16,7 @@ export async function getBloberts(address: string): Promise<Array<TokenType>> {
     const nulls = address.length < 66 ? "0".repeat(66 - address.length) : "";
     //TODO: address
     const resp = await fetch(
-      `https://cloud.argent-api.com/v1/pandora/starknet/mainnet/profile/${"0x3CA99165D3b71CaC950b2C5383aA30Ee6e94dB616d5420Eaa2eBdb1FFdEC11"
+      `https://cloud.argent-api.com/v1/pandora/starknet/mainnet/profile/${address
         .replace("x", "x" + nulls)
         .toLowerCase()}/nfts?page=0&size=4844`,
       {
