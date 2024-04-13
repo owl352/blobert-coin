@@ -29,7 +29,10 @@ export function Balance({ address }: { address: string }) {
         zIndex: "20",
       }}
     >
-      <img src={getPublicUrl("blobert-coin.svg")} style={{ width: "2vw", marginRight:"1vw" }} />
+      <img
+        src={getPublicUrl("blobert-coin.svg")}
+        style={{ width: "2vw", marginRight: "1vw" }}
+      />
       <div style={{ fontSize: "0.85vw", color: "white" }}>
         {balance != "0"
           ? parseInt(balance.slice(0, balance.length - decimals))
