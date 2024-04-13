@@ -23,9 +23,10 @@ export function Balance({ address }: { address: string }) {
       style={{
         display: "flex",
         flexDirection: "row",
+        alignItems:"center",
         position: "absolute",
         left: "64vw",
-        top: "18.25vw",
+        top: "18.2vw",
         zIndex: "20",
       }}
     >
