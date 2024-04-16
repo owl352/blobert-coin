@@ -2,7 +2,12 @@ import React from "react";
 import { SwiperSlide } from "swiper/react";
 import { ISlider } from "../../utils/interfaces";
 import { SlideBottom } from "./Slide-bottom";
-export function Slides({ tokens, tokensData }: ISlider): Array<JSX.Element> {
+export function Slides({
+  tokens,
+  tokensData,
+  onEndTxn,
+  onStartTxn,
+}: ISlider): Array<JSX.Element> {
   const dataForDraw: Array<JSX.Element> = [];
   console.log(Object.keys(tokensData));
   for (let i = 0; i < tokens.length; i++) {
@@ -27,6 +32,8 @@ export function Slides({ tokens, tokensData }: ISlider): Array<JSX.Element> {
             tokenId={tokens[i].tokenId}
             name={tokens[i].name}
             tokensData={tokensData}
+            onEndTxn={onEndTxn}
+            onStartTxn={onStartTxn}
           />
         </div>
       </SwiperSlide>

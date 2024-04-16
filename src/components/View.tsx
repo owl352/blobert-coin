@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Sign } from "./Sign";
 import TokenSlider from "./Slider";
 import { IView } from "../utils/interfaces";
 import { starkscanContractURI } from "../utils/constants";
 import { getImageUrl } from "../main";
 import { Balance } from "./balance";
+import { MintEffect } from "./ui/MintEffect";
 
 export function View({
   myTokenBalance,
@@ -13,10 +14,12 @@ export function View({
   address,
   onClose,
 }: IView) {
+  const [minting, changeMintingState] = useState(false);
   return (
     <div>
       <Sign balance={myTokenBalance}></Sign>
-      {address !==undefined ? <Balance address={address!} />:<></>}
+      {address !== undefined ? <Balance address={address!} /> : <></>}
+      {minting && address !== undefined ? MintEffect() : <></>}
       {address !== undefined ? (
         <div
           style={{
@@ -93,7 +96,12 @@ export function View({
                 minWidth: "20vw",
               }}
             >
-              <TokenSlider tokens={myTokens} tokensData={myTokensData} />
+              <TokenSlider
+                tokens={myTokens}
+                tokensData={myTokensData}
+                onStartTxn={() => changeMintingState(true)}
+                onEndTxn={() => changeMintingState(false)}
+              />
             </div>
           ) : (
             <div style={{ color: "white" }}>{"No Tokens :("}</div>

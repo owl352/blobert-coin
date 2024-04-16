@@ -9,7 +9,13 @@ import {
   useWaitForTransaction,
 } from "@starknet-react/core";
 
-export function SlideBottom({ tokenId, name, tokensData }: ISlideBottom) {
+export function SlideBottom({
+  tokenId,
+  name,
+  tokensData,
+  onStartTxn,
+  onEndTxn,
+}: ISlideBottom) {
   const [invertState, setInvert] = useState(0);
 
   const { contract } = useContract({ abi: ABI, address: contractAddress });
@@ -31,6 +37,9 @@ export function SlideBottom({ tokenId, name, tokensData }: ISlideBottom) {
   useEffect(() => {
     if (receipt) {
       setInvert(1);
+      if (onEndTxn) {
+        onEndTxn();
+      }
     }
   }, [receipt]);
 
@@ -66,6 +75,9 @@ export function SlideBottom({ tokenId, name, tokensData }: ISlideBottom) {
             src="/btn-mint.svg"
             onClick={() => {
               write();
+              if (onStartTxn) {
+                onStartTxn();
+              }
             }}
           />
         </div>
